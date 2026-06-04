@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dingdonk AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#111;
+    color:white;
+}
+
+header{
+    background:#000;
+    padding:20px;
+    text-align:center;
+    border-bottom:3px solid gold;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:gold;
+}
+
+.sub{
+    color:#ccc;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:#1d1d1d;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+h2{
+    margin-bottom:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:gold;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+textarea{
+    width:100%;
+    height:120px;
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    margin-top:10px;
+}
+
+.result{
+    background:#000;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.menu button{
+    height:60px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#999;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<div class="logo">DINGDONK AI</div>
+<div class="sub">Generator Tugas & Gambar AI</div>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Dashboard</h2>
+
+<div class="menu">
+
+<button onclick="pilih('Makalah')">
+📄 Makalah
+</button>
+
+<button onclick="pilih('Proposal')">
+📚 Proposal
+</button>
+
+<button onclick="pilih('Skripsi')">
+🎓 Skripsi
+</button>
+
+<button onclick="pilih('PPT')">
+📊 PPT
+</button>
+
+<button onclick="pilih('Surat')">
+📝 Surat
+</button>
+
+<button onclick="pilih('CV')">
+👤 CV
+</button>
+
+<button onclick="pilih('Chat AI')">
+🤖 Chat AI
+</button>
+
+<button onclick="pilih('Gambar AI')">
+🎨 Gambar AI
+</button>
+
+</div>
+</div>
+
+<div class="card">
+<h2 id="judul">Generator Tugas</h2>
+
+<textarea
+id="prompt"
+placeholder="Masukkan topik..."
+></textarea>
+
+<button onclick="generate()">
+GENERATE
+</button>
+
+<div class="result" id="hasil">
+Hasil akan muncul di sini...
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Dingdonk Visual
+</footer>
+
+<script>
+
+let fitur = "Makalah";
+
+function pilih(nama){
+    fitur = nama;
+    document.getElementById("judul").innerHTML =
+    nama;
+}
+
+function generate(){
+
+let topik =
+document.getElementById("prompt").value;
+
+if(topik==""){
+    alert("Masukkan topik terlebih dahulu");
+    return;
+}
+
+let hasil =
+`
+<h3>${fitur}</h3>
+<br>
+Topik: ${topik}
+<br><br>
+
+Ini adalah contoh hasil generator ${fitur}.
+
+Pada versi premium,
+bagian ini akan terhubung
+dengan AI seperti Gemini
+atau ChatGPT API sehingga
+dapat menghasilkan dokumen
+otomatis dan gambar AI.
+`;
+
+document.getElementById("hasil").innerHTML =
+hasil;
+
+}
+
+</script>
+
+</body>
+</html>
